@@ -5,6 +5,8 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
+    int tabuleiro[10] [10];
+    char linha[10] = {'A', 'B','C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
