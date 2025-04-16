@@ -16,6 +16,8 @@ int main() {
 //Define o valor 3 aos navios    
     int navioh[3] = {3,3,3}; 
     int naviov[3] = {3,3,3};
+    int naviod1[3] = {3,3,3};
+    int naviod2[3] = {3,3,3};
 
 // Tamanho dos navios fixo
 int tamanhonavio = 3;
@@ -25,6 +27,10 @@ int tamanhonavio = 3;
  int colunahorizontal = 4;
  int linhavertical = 2;
  int colunavertical = 7;
+ int linhadiagonal1 = 0;
+ int colunadiagonal1 = 1;
+ int linhadiagonal2 = 4;
+ int colunadiagonal2 = 3;
 
  //Verificando posições
 
@@ -45,6 +51,36 @@ int tamanhonavio = 3;
         return 1;
     }
 
+if (linhadiagonal1 + tamanhonavio <= 10 && linhadiagonal2 + tamanhonavio <= 10){
+    for (int i = 0; i < tamanhonavio; i++) {
+        int linha = linhadiagonal1 + i;
+        int coluna = colunadiagonal1 + i;
+        
+        if (linha >= 10 && coluna >= 10 && tabuleiro[linha][coluna] != 0) {
+            printf("Erro: Navio diagonal 1 fora dos limites ou sobreposto!\n");
+            return 1;
+        }
+    
+        tabuleiro[linha][coluna] = naviod1[i];
+    }
+    for (int i = 0; i < tamanhonavio; i++){
+            int linha = linhadiagonal2 + i;
+            int coluna = colunadiagonal2 - i;
+        
+            if (linha >= 10 && coluna < 0 && tabuleiro[linha][coluna] != 0) {
+                printf("Erro: Navio diagonal 2 fora dos limites ou sobreposto!\n");
+                return 1;
+            }
+        
+            tabuleiro[linha][coluna] = naviod2[i];
+        
+    }
+
+    } else {
+        printf("Coordenada incompatível com o tabuleiro\n");
+        return 1;
+    }
+
     printf("\nTabuleiro de Batalha Naval\n\n");
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
@@ -52,11 +88,6 @@ int tamanhonavio = 3;
         }
         printf("\n");
     }
-
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
